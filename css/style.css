@@ -1,0 +1,149 @@
+@font-face {
+    font-family: myFont;
+    src: url(../font/Othmani.ttf);
+}
+
+
+.img {
+    width: 15%;
+
+}
+
+* {
+    margin: auto;
+    padding: auto;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #f2efea;
+}
+
+
+.input__container--variant {
+    background: linear-gradient(to bottom, #F3FFF9, #F3FFF9);
+    border-radius: 30px;
+    max-width: 13em;
+    padding: 1em 1em;
+    margin-top: 25px;
+}
+
+.shadow__input--variant {
+    filter: blur(25px);
+    border-radius: 30px;
+    background-color: #F3FFF9;
+    opacity: 0.5;
+}
+
+.input__button__shadow--variant {
+    border-radius: 15px;
+    background-color: #07372C;
+    padding: 10px;
+    border: none;
+}
+
+.input__button__shadow--variant:hover {
+    background-color: #3C6659;
+}
+
+.input__search--variant {
+    width: 13em;
+    align-items: center;
+    border-radius: 13em;
+    outline: none;
+    border: none;
+    padding: 0.8em;
+    font-size: 1.2em;
+    color: #002019;
+    background-color: transparent;
+}
+
+.input__search--variant::placeholder {
+    color: #002019;
+    opacity: 0.7;
+}
+
+.input__container--variant {
+    background: linear-gradient(to bottom, #F3FFF9, #F3FFF9);
+    border-radius: 1.5em;
+    max-width: 14em;
+    padding: 1em;
+    box-shadow: 0em 1em 3em #beecdc64;
+}
+
+/* .container{
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+    } */
+
+/* .box{
+        border: #07372C 1px solid;
+        display: flex;
+        padding: 10px;
+        flex: 1 1 160px;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+    height: 10vh;
+  } */
+  .box>*:hover{
+    background: #3C6659;
+    color: #fff;
+  }
+.box {
+    /* display: flex; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 300px;
+    display: grid;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    /* width: 100vh; */
+    grid-template-columns: 1fr 1fr 1fr;
+    cursor: pointer;
+}
+
+.box>* {
+    flex: 1 1 80px;
+
+    height: 100px;
+    border: #07372C 2px solid;
+    width: 60%;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    border-radius: 5px;
+    font-family: myFont;
+    font-size: 22px;
+
+}
+
+
+.number{
+    border: #07372C 2px solid;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    transform: rotate(45deg);
+}
+
+.nombre{
+    transform: rotate(315deg);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .box{
+        display: block;
+        width: auto;
+    }
+}
