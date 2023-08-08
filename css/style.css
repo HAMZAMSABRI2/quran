@@ -88,6 +88,7 @@ body {
 .box > *:hover {
   background: #3c6659;
   color: #fff;
+  border: none;
 }
 .box {
   /* display: flex; */
@@ -169,6 +170,7 @@ p {
     background-color: #f2efea;
     overflow-y: scroll;
     transform: translateX(100%);
+    transition: 0.4s ease-in-out all;
 }
 .surah-popup.active
 {
@@ -186,9 +188,9 @@ p {
 }
 .close-popup
 {
-    position: sticky;
+    position: fixed;
     top: 5px;
-    right: 5px;
+    right: 21px;
     width: 40px;
     height: 40px;
     box-shadow: 0 0 4px rgba(0,0,0,.6);
@@ -198,6 +200,7 @@ p {
     font-size: 23px;
     color: #121212;
     cursor: pointer;
+    
 }
 .surah-popup .ayat
 {
