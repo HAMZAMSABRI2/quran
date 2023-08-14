@@ -8,7 +8,7 @@ function searchSurat() {
       .querySelector("p:nth-child(2)")
       .textContent.toLowerCase();
     if (suratName.toLowerCase().includes(filter)) {
-      item.style.display = "flex";
+      // item.style.display = "grid";
     } else {
       item.style.display = "none";
     }
@@ -24,13 +24,15 @@ function getSurat() {
       let number = 114;
       for (let i = 0; i < number; i++) {
         boxsalat.innerHTML += `
+
           <div class="salat">
             <p>${surat[i].numberOfAyahs}</p>
             <p class="sora">${surat[i].name}</p>
+            
             <div class="number">
-              <p class="nombre">${surat[i].number}</p>
+            <p class="nombre">${surat[i].number}</p>
             </div>   
-          </div>
+            </div>
         `;
       }
 
@@ -41,7 +43,7 @@ function getSurat() {
       let popup = document.querySelector(".surah-popup"),
         AyatContainer = document.querySelector(".ayat");
       SurahsTitels.forEach((title, index) => {
-        console.log(index);
+
         title.addEventListener("click", () => {
           fetch("http://api.alquran.cloud/v1/quran/ar.alafasy")
             .then((response) => response.json())
@@ -60,18 +62,23 @@ function getSurat() {
               }
             });
           // console.log(sora.textContent);
+          // SurahsTitels
           fetch(`http://api.alquran.cloud/v1/surah/${index + 1}`)
             .then((response) => response.json())
             .then((data) => {
+              console.log(title);
               AyatContainer.innerHTML = "";
               let Ayat = data.data.ayahs;
+
+              // let name = data.data.name;
               Ayat.forEach((aya) => {
                 popup.classList.add("active");
 
                 AyatContainer.innerHTML += `
                 
-                
+                          <h1></h1>
                           <p>(${aya.numberInSurah}) - ${aya.text}</p>
+                          
                       `;
               });
             });
@@ -88,6 +95,8 @@ function getSurat() {
   // console.log(SurahsTitels[0])
   // Retrieve id from clicked element
 }
+
+
 
 getSurat();
 
@@ -128,6 +137,37 @@ fetch(`http://api.alquran.cloud/v1/meta`)
     `;
     }
   });
+let qari = data.data.surahs;
+
+      let audioHTML = ''; // Variable to store the HTML for audio elements
+
+      qari.forEach((surah, index) => {
+        let qariAudio = surah.ayahs.map((aya) => aya.audio); // Create an array of audio URLs for each ayah in the surah
+        
+        qariAudio.forEach((audioUrl) => {
+          audioHTML += `
+            <audio controls>
+              <source src="${audioUrl}" type="audio/mp3">
+              Your browser does not support the audio element.
+            </audio>
+            <br>
+          `;
+        });
+      });
+
+      mp3.innerHTML = audioHTML; // Set the innerHTML of mp3 element to the generated audio elements
+
+In this corrected code, we build up the audioHTML string inside the loop, and after looping through all surahs, we set the innerHTML of the mp3 element to the accumulated audioHTML string.
+
+Please ensure you have elements with the IDs "title" and "mp3" in your HTML code to match the code above. Also, make sure that your browser allows fetching resources from external domains (CORS policy).
+
+
+
+
+
+
+
+
 
 
 
