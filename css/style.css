@@ -1,11 +1,13 @@
-/* @font-face {
+@font-face {
   font-family: myFont;
   src: url(../font/UthmanTN1B\ Ver07\ \(1\).otf);
 }
 
 .ayat-style{
   font-family: myFont;
-} */
+  font-weight:  bold;
+  font-size: 22px;
+}
 
 .img {
   width: 15%;
@@ -167,6 +169,7 @@ p {
     font-size: 24px;
     color: #121212;
     text-align: center;
+
 }
 .ayat p
 {

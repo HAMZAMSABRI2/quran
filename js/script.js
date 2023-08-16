@@ -62,6 +62,9 @@ function showSurat(id ) {
   j = id
 
 
+
+
+
   
 
   let mp3 = document.querySelector(".audio");
@@ -71,6 +74,18 @@ function showSurat(id ) {
   fetch(`http://api.alquran.cloud/v1/surah/${id}`)
     .then((response) => response.json())
     .then((data) => {
+
+
+      // replace number latin to arabic 
+
+
+      
+
+
+
+
+
+      //
       AyatContainer.innerHTML = "";
       let Ayat = data.data.ayahs;
       let number = data.data;
