@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="./css/style.css">
+    
 </head>
+
+
 
 <body>
     <div class="img">
@@ -51,35 +55,92 @@
     </div>
 
 
-    <!-- <hr style="width: 50%; margin: auto; margin-top: 50px;"> -->
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+
+                <div id="surahs"></div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="surah-popup m-auto modal-body">
+
+                        <div class="audio">
+
+                        </div>
+                        <div class="select">
+                            <select class="form-select" id="muqri" onchange="handleSelectChange()">
+                                <option selected value="Ajmi">Ahmed al Ajmi</option>
+                                <option value="budair">Salah al Budair</option>
+                                <option value="basfar">Abdellah Basfar</option>
+                                <option value="boukhatir">Salah al Boukhatir</option>
+                                <option value="dossari">Yasser Dossari</option>
+                                <option value="ghamidi">Saad al Ghamidi</option>
+                                <option value="houdayfi">Ali al Houdayfi</option>
+                                <option value="hanif">Abdelwadoud Hanif</option>
+                                <option value="juhani">Abdellah al Juhani</option>
+                                <option value="jaber">Ali Jaber</option>
+                                <option value="kazabri">Omar al kazabri</option>
+                                <option value="minshawi">Mohammed al Minshawi</option>
+                                <option value="hussary">Mahmoud al Hussary</option>
+                                <option value="matroud">Abdellah al Matroud</option>
+                                <option value="mouayqli">Maher al Mouayqli</option>
+                                <option value="qassim">Abdelmuhsin al Qassim</option>
+                                <option value="qahtani">Khalid al Qahtani</option>
+                                <option value="soudais">Abderrahman Soudais</option>
+                                <option value="shouraim">Saoud Shouraim</option>
+                                <option value="shatiri">Abou Bakr Shatiri</option>
+                                <option value="salama">Yasser Salama</option>
+                            </select>
+
+                            <div id="result"></div>
+                        </div>
+                        <div class="ayate">
+                            <p class="ayat">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary w-100" data-dismiss="modal">Fermer </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
 
     <div class="box">
 
-
-        <!-- <div>Ten</div> -->
     </div>
 
-    <div class="surah-popup mt-3 p-3 w-50 bg-white">
-        <div class="close-popup">
-            <i class="fa-solid fa-xmark"></i>
 
 
-        </div>
 
-        
-                     <div class="audio">
 
-                    </div>
-        <div class="ayat">
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJ LYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+         crossorigin="anonymous"></script> -->
 
     <script src="./js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
 </body>
 
 </html>

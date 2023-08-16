@@ -1,16 +1,11 @@
-@font-face {
+/* @font-face {
   font-family: myFont;
-  src: url(../font/Othmani.ttf);
+  src: url(../font/UthmanTN1B\ Ver07\ \(1\).otf);
 }
 
-@font-face {
-  font-family: ABS;
-  src: url(../data/quran.json);
-}
-
-.sora{
+.ayat-style{
   font-family: myFont;
-}
+} */
 
 .img {
   width: 15%;
@@ -23,12 +18,15 @@
 
 }
 
-
+body::-webkit-scrollbar-thumb
+{
+    background-color: #43a047;
+}
 
 body {
   background-color: #f2efea;
-  
-  /* overflow-y: scroll; */
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .input__container--variant {
@@ -91,25 +89,30 @@ body {
   /* display: flex; */
   flex-direction: column;
   flex-wrap: wrap;
-  height: 300px;
+  height: 200px;
+  width: 80%;
   display: grid;
   flex-direction: column-reverse;
   flex-wrap: wrap;
-  /* width: 100vh; */
-  cursor: pointer;
+  width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  cursor: pointer;
 }
 
 .box > * {
   flex: 1 1 80px;
 
-  height: 100px;
+  height: 120px;
+  outline: none;
   border: #07372c 2px solid;
-  width: 80%;
+  width: 60%;
   margin-top: 10px;
   align-items: center;
   justify-content: space-around;
-  display: flex;
+  display: grid;
+  align-content: center;
+  align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
   border-radius: 5px;
   font-family: myFont;
   font-size: 22px;
@@ -119,7 +122,7 @@ body {
   border: #07372c 2px solid;
   width: 50px;
   height: 50px;
-
+  margin-top: 20px;
   display: flex;
   align-items: center;
   transform: rotate(45deg);
@@ -153,57 +156,8 @@ p {
 }
 
 
-/* suwar coran al kareem design */
 
-
-.surah-popup
-{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 70vh;
-    z-index: 2;
-    border-radius: 19px;
-    background-color: #f2efea;
-    overflow-y: scroll;
-    transform: translateX(-150%);
-    transition: 0.4s ease-in-out all;
-}
-.surah-popup.active
-{
-    transform: translateX(0%);
-    transition: .7s transform ease-in-out;
-    /* overflow: hidden; */
-}
-.surah-popup::-webkit-scrollbar
-{
-    width: 10px;
-    background-color: #fff;
-}
-.surah-popup.active::-webkit-scrollbar-thumb
-{
-    background-color: #43a047;
-    overflow: hidden;
-}
-.close-popup
-{
-    position: sticky;
-    top: 5px;
-    margin-right: -11px;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0 0 4px rgba(0,0,0,.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 23px;
-    color: #121212;
-    cursor: pointer;
-    
-}
-.surah-popup .ayat
+.ayat
 {
     padding: 20px;
     width: calc(100% - 40px);
@@ -214,21 +168,237 @@ p {
     color: #121212;
     text-align: center;
 }
-.surah-popup .ayat p
+.ayat p
 {
     line-height: 2;
     width: 100%;
     
-    /* border-bottom: 3px solid #43a047; */
+    border-bottom: 3px solid #43a047;
     border-radius: 16px;
     MARGIN-TOP: 25px;
 }
 
 
-
-source {
-  width: 100%;
-  max-width: 400px;
-  margin: 10px 0;
+.container {
+  width: 800px;
+  margin: 30px auto;
 }
 
+.mejs {
+  &__container {
+    margin-top: 10px;
+  }
+  
+  &__controls {
+    display: block;
+  }
+  
+  &__controls, &__container {
+    background: none !important;
+  }
+  
+  &__time {
+    color: #777;
+    font-weight: normal;
+  }
+}
+
+.podcast {
+  background: #f0f0f0;
+  padding: 30px;
+  border-radius: 3px;
+  
+  &__episode_title {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    color: #333;
+  }
+  
+  &__title {
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #555;
+    i {
+      font-style: normal;
+      font-weight: normal;
+      text-transform: capitalize;
+      margin-left: 10px;
+    }
+  }
+  
+  &__meta {
+    background: #ddd;
+    margin: 40px -30px -30px -30px;
+    padding: 0 30px 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+      .artwork {
+        margin-right: 0;
+        transform: translateY(-70px);
+        >img {
+          border-radius: 3px;
+          width: 150px;
+          height: 150px;
+          box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+          margin-bottom: -80px;
+        }
+      }
+  }
+  
+  
+}
+
+.mejs-prepended-buttons {
+  display: flex
+}
+
+.mejs-appended-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mejs__play > button {
+  background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
+}
+
+.mejs__pause > button {
+  background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
+  background-position: -20px 0;
+}
+
+.mejs__mute > button {
+    background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
+  background-position: -60px 0;
+}
+
+.mejs__unmute > button {
+      background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
+  background-position: -40px 0;
+}
+
+.mejs-skip-back-button>button, 
+.mejs__skip-back-button>button {
+   background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/skipback.svg');
+}
+
+.mejs-jump-forward-button>button, .mejs__jump-forward-button>button {
+  background: url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/jumpforward.svg') no-repeat;
+}
+
+.mejs__button > button {
+  color: #555;
+}
+
+.mejs__horizontal-volume-slider {
+  display: none !important;
+}
+
+
+
+select {
+  /* Reset */
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  margin: auto;
+  margin-right: 0;
+
+  width: 20em;
+  height: 3em;
+  padding: 0 4em 0 1em;
+
+  color: rgb(0, 0, 0);
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  
+
+}
+option {
+  color: inherit;
+  background-color: black;
+}
+
+select:focus {
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* Style for the audio player */
+.audio {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the audio controls */
+.audio::-webkit-media-controls-panel {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+/* Style for the play/pause button */
+.audio::-webkit-media-controls-play-button {
+  background-color:none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+
+
+/* Style for the volume and progress bars */
+.audio::-webkit-media-controls-volume-slider,
+.audio::-webkit-media-controls-current-time-display,
+.audio::-webkit-media-controls-time-remaining-display {
+  color: #333;
+}
+
+/* Style for the volume icon */
+.audio::-webkit-media-controls-mute-button,
+.audio::-webkit-media-controls-volume-slider-thumb {
+  background-color: none;
+}
+
+/* Style for the progress bar */
+.audio::-webkit-media-controls-played-bar {
+  background-color: #333;
+}
+
+/* Style for the remaining progress bar */
+.audio::-webkit-media-controls-seek-back-button,
+.audio::-webkit-media-controls-seek-forward-button,
+.audio::-webkit-media-controls-time-remaining-display {
+  color: #333;
+}
+
+/* Style for the progress bar thumb */
+.audio::-webkit-media-controls-current-time-display,
+.audio::-webkit-media-controls-time-remaining-display,
+.audio::-webkit-media-controls-time-remaining-display,
+.audio::-webkit-media-controls-seek-back-button,
+.audio::-webkit-media-controls-seek-forward-button {
+  background-color: transparent;
+  border: none;
+}
+
+/* Style for the progress bar thumb on hover */
+.audio::-webkit-media-controls-current-time-display:hover,
+.audio::-webkit-media-controls-time-remaining-display:hover {
+  color: #555;
+}
