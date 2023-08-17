@@ -1,13 +1,25 @@
 @font-face {
-  font-family: myFont;
-  src: url(../font/UthmanTN1B\ Ver07\ \(1\).otf);
+  font-family: 'thuluth-decorated';
+  src: url('../fonts/thuluth-decorated.eot');
+  src: local('ثلث مزخرف'), local('thuluth-decorated'),
+    url('../fonts/thuluth-decorated.woff') format('woff');
 }
 
-.ayat-style{
-  font-family: myFont;
-  font-weight:  bold;
+@font-face {
+  font-family: 'cairo-bold';
+  src: url('../fonts/cairo-bold.eot');
+  src: local('القاهرة ثقيل'), local('cairo-bold'), url('../fonts/cairo-bold.woff') format('woff');
+}
+
+
+.ayat-style {
+  font-family: 'thuluth-decorated' , sans-serif;
+  direction: rtl;
+  font-weight: bold;
   font-size: 22px;
 }
+
+
 
 .img {
   width: 15%;
@@ -20,9 +32,8 @@
 
 }
 
-body::-webkit-scrollbar-thumb
-{
-    background-color: #43a047;
+body::-webkit-scrollbar-thumb {
+  background-color: #43a047;
 }
 
 body {
@@ -82,11 +93,12 @@ body {
   box-shadow: 0em 1em 3em #beecdc64;
 }
 
-.box > *:hover {
+.box>*:hover {
   background: #3c6659;
   color: #fff;
   border: none;
 }
+
 .box {
   /* display: flex; */
   flex-direction: column;
@@ -101,7 +113,11 @@ body {
   cursor: pointer;
 }
 
-.box > * {
+.sora {
+  font-family: 'thuluth-decorated';
+}
+
+.box>* {
   flex: 1 1 80px;
 
   height: 120px;
@@ -114,7 +130,7 @@ body {
   display: grid;
   align-content: center;
   align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   border-radius: 5px;
   font-family: myFont;
   font-size: 22px;
@@ -159,26 +175,27 @@ p {
 
 
 
-.ayat
-{
-    padding: 20px;
-    width: calc(100% - 40px);
-    margin-top: 20px;
-    margin-right: 40px;
-    font-weight: bold;
-    font-size: 24px;
-    color: #121212;
-    text-align: center;
+.ayat {
+  padding: 20px;
+  width: calc(100% - 40px);
+  margin-top: 20px;
+  margin-right: 40px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #121212;
+  text-align: justify;
+  font-family: myFont;
 
 }
-.ayat p
-{
-    line-height: 2;
-    width: 100%;
-    
-    border-bottom: 3px solid #43a047;
-    border-radius: 16px;
-    MARGIN-TOP: 25px;
+
+.ayat span {
+  line-height: 2;
+  width: 100%;
+  font-family: 'cairo-bold';
+  /* border-bottom: 3px solid #43a047;  */
+  /* border-radius: 16px; */
+  MARGIN-TOP: 25px;
+
 }
 
 
@@ -191,15 +208,16 @@ p {
   &__container {
     margin-top: 10px;
   }
-  
+
   &__controls {
     display: block;
   }
-  
-  &__controls, &__container {
+
+  &__controls,
+  &__container {
     background: none !important;
   }
-  
+
   &__time {
     color: #777;
     font-weight: normal;
@@ -210,7 +228,7 @@ p {
   background: #f0f0f0;
   padding: 30px;
   border-radius: 3px;
-  
+
   &__episode_title {
     font-size: 28px;
     font-weight: bold;
@@ -220,12 +238,13 @@ p {
     margin-top: 0;
     color: #333;
   }
-  
+
   &__title {
     margin-top: 10px;
     text-transform: uppercase;
     font-size: 11px;
     color: #555;
+
     i {
       font-style: normal;
       font-weight: normal;
@@ -233,7 +252,7 @@ p {
       margin-left: 10px;
     }
   }
-  
+
   &__meta {
     background: #ddd;
     margin: 40px -30px -30px -30px;
@@ -242,20 +261,22 @@ p {
     justify-content: space-between;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-      .artwork {
-        margin-right: 0;
-        transform: translateY(-70px);
-        >img {
-          border-radius: 3px;
-          width: 150px;
-          height: 150px;
-          box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
-          margin-bottom: -80px;
-        }
+
+    .artwork {
+      margin-right: 0;
+      transform: translateY(-70px);
+
+      >img {
+        border-radius: 3px;
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+        margin-bottom: -80px;
       }
+    }
   }
-  
-  
+
+
 }
 
 .mejs-prepended-buttons {
@@ -267,35 +288,36 @@ p {
   justify-content: space-evenly;
 }
 
-.mejs__play > button {
+.mejs__play>button {
   background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
 }
 
-.mejs__pause > button {
+.mejs__pause>button {
   background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
   background-position: -20px 0;
 }
 
-.mejs__mute > button {
-    background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
+.mejs__mute>button {
+  background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
   background-position: -60px 0;
 }
 
-.mejs__unmute > button {
-      background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
+.mejs__unmute>button {
+  background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/mediaplayer-sprite-gray.svg') no-repeat;
   background-position: -40px 0;
 }
 
-.mejs-skip-back-button>button, 
+.mejs-skip-back-button>button,
 .mejs__skip-back-button>button {
-   background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/skipback.svg');
+  background: transparent url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/skipback.svg');
 }
 
-.mejs-jump-forward-button>button, .mejs__jump-forward-button>button {
+.mejs-jump-forward-button>button,
+.mejs__jump-forward-button>button {
   background: url('https://cdn.jsdelivr.net/gh/ivorpad/images-src/jumpforward.svg') no-repeat;
 }
 
-.mejs__button > button {
+.mejs__button>button {
   color: #555;
 }
 
@@ -322,9 +344,10 @@ select {
   border-radius: 0.25em;
   box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  
+
 
 }
+
 option {
   color: inherit;
   background-color: black;
@@ -349,15 +372,13 @@ select::-ms-expand {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Style for the audio controls */
 .audio::-webkit-media-controls-panel {
   background-color: #f5f5f5;
   border-radius: 8px;
 }
 
-/* Style for the play/pause button */
 .audio::-webkit-media-controls-play-button {
-  background-color:none;
+  background-color: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -365,32 +386,31 @@ select::-ms-expand {
 
 
 
-/* Style for the volume and progress bars */
+
 .audio::-webkit-media-controls-volume-slider,
 .audio::-webkit-media-controls-current-time-display,
 .audio::-webkit-media-controls-time-remaining-display {
   color: #333;
 }
 
-/* Style for the volume icon */
+
 .audio::-webkit-media-controls-mute-button,
 .audio::-webkit-media-controls-volume-slider-thumb {
   background-color: none;
 }
 
-/* Style for the progress bar */
+
 .audio::-webkit-media-controls-played-bar {
   background-color: #333;
 }
 
-/* Style for the remaining progress bar */
 .audio::-webkit-media-controls-seek-back-button,
 .audio::-webkit-media-controls-seek-forward-button,
 .audio::-webkit-media-controls-time-remaining-display {
   color: #333;
 }
 
-/* Style for the progress bar thumb */
+
 .audio::-webkit-media-controls-current-time-display,
 .audio::-webkit-media-controls-time-remaining-display,
 .audio::-webkit-media-controls-time-remaining-display,
@@ -400,8 +420,69 @@ select::-ms-expand {
   border: none;
 }
 
-/* Style for the progress bar thumb on hover */
+
 .audio::-webkit-media-controls-current-time-display:hover,
 .audio::-webkit-media-controls-time-remaining-display:hover {
   color: #555;
+}
+
+
+
+.span {
+  text-align: justify;
+  line-height: 2px;
+  margin-top: 25px;
+}
+
+
+label,
+.title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+/* responsive design with multiple device */
+
+@media only screen and (min-width: 1500px) {
+  .box {
+    display: grid;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 80%;
+    display: grid;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media only screen and (max-width: 780px) {
+  .box {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

@@ -15,12 +15,12 @@ function getSurat() {
       for (let i = 0; i < number; i++) {
         boxsalat.innerHTML += `
             <div class="salat"  onclick="showSurat('${i + 1}')">
-              <p>${surat[i].numberOfAyahs}</p>
+              <p>أيات  ${surat[i].numberOfAyahs} </p>
               
               
               <p class="sora">${surat[i].name}</p>
               <div class="number">
-              <p class="nombre">${surat[i].number}</p>
+              <p class="nombre">${surat[i].number} </p>
               </div>   
 
               </div>
@@ -76,16 +76,7 @@ function showSurat(id ) {
     .then((data) => {
 
 
-      // replace number latin to arabic 
 
-
-      
-
-
-
-
-
-      //
       AyatContainer.innerHTML = "";
       let Ayat = data.data.ayahs;
       let number = data.data;
@@ -94,7 +85,7 @@ function showSurat(id ) {
 
          
              
-                       <p class="ayat">(${aya.numberInSurah}) - ${aya.text}</p>
+                       <span class="span">${aya.text}  ${aya.numberInSurah}</span>
                        
                    `;
       });
@@ -120,7 +111,7 @@ function showSurat(id ) {
 
               `
 
-              <audio controls  class="audio w-100">
+              <audio controls  class="audio w-100" autoplay>
                 <source src="${muqria[id].audio}" type="audio/mp3">
 
 
@@ -131,7 +122,7 @@ function showSurat(id ) {
             surahs.innerHTML = 
             
             `
-                <h1>${muqria[id].english_name}</h1>
+                <h1>  ${muqria[id].name}</h1>
             `
             // muqria.forEach((surah)=>{
               
@@ -141,6 +132,11 @@ function showSurat(id ) {
             console.log("error");
           }
         })
+
+
+        $('#myModal').on('hidden.bs.modal', function (e) {
+          audio.pause(); 
+        });
     });
     
 
@@ -151,4 +147,20 @@ function showSurat(id ) {
 
 }
 
+
+function pauseAudio() {
+  const audioElement = document.querySelector("audio");
+  if (audioElement) {
+      audioElement.pause();
+  }
+}
+
+
+const closeButton = document.querySelector(".close");
+if (closeButton) {
+    closeButton.addEventListener("click", () => {
+        pauseAudio(); 
+        
+    });
+}
 
