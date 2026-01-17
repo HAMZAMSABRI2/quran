@@ -7,7 +7,7 @@ const surahs = document.getElementById('surahs');
 const result = document.getElementById('result');
 
 function getSurat() {
-  fetch("http://api.alquran.cloud/v1/meta")
+  fetch("https://api.alquran.cloud/v1/meta")
     .then((response) => response.json())
     .then((data) => {
       let surat = data.data.surahs.references;
@@ -71,7 +71,7 @@ function showSurat(id ) {
 
   let AyatContainer = document.querySelector(".ayat");
   let muqria
-  fetch(`http://api.alquran.cloud/v1/surah/${id}`)
+  fetch(`https://api.alquran.cloud/v1/surah/${id}`)
     .then((response) => response.json())
     .then((data) => {
 
